@@ -4,38 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace LouisvilleHikes
 {
     internal class Trails
     {
-        public char trailName;
+        private string park;
+        private string trail;
+        private string distance;
+        private string difficulty;
 
-        public Trails(char trailName)
+       public string Park { get => park; set => park = value; }
+        public string Trail { get => trail; set => trail = value; }
+        public string Distance { get => distance; set => distance = value; }
+        public string Difficulty { get => difficulty; set => difficulty = value; }
+        public int Time { get; set; }
+        public string Listing
         {
-            this.trailName = trailName;
+            get
+            {
+                return Trail + " - " + Distance;
+
+            }
         }
 
-        public Trails()
-        {
-        }
-
-        public int trailDistance;
-        public int trailDifficulty;
-        public decimal trailLength;
-        public int trailTime;
-        private int Id;
-        private static readonly List<Trails> trails = new List<Trails>()
-        {
-            new Trails() {Id = 1, trailName="Red Trail"},
-            new Trails() {Id = 2, trailName="Siltstone Trail"},
-            new Trails() {Id = 3, trailName="Michtell Hill Lake Trail"},
-            new Trails() {Id = 4, trailName="Fresh Air Loop"},
-            new Trails() {Id=5, trailName="Playground Loop" },
-            new Trails() {Id = 6, trailName="Twisting Bends Trail"}
-
-        };
 
     }
-    
-     
- }
+
+
+}

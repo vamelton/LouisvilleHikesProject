@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace LouisvilleHikes
 {
     class Program
@@ -13,19 +15,19 @@ namespace LouisvilleHikes
             Console.WriteLine("***Welcome to Louisville's Hiking Guide!***");
         }
 
-        private static bool MainMenu()
+     
         {
-            Console.Clear();
-            Console.WriteLine("Let's choose a Park");
-            Console.WriteLine("1) Jefferson Memorial Forest");
-            Console.WriteLine("2) Waverly Park");
-            Console.WriteLine("3) Exit");
-            Console.WriteLine("\r\nSelect an option: ");
+            Console.Clear NewStruct;
+            Console.WriteLineNewStruct,"Let's choose a Park");
+            Console.WriteLine NewStruct"1) Jefferson Memorial Forest");
+            Console.WriteLine NewStruct"2) Waverly Park");
+            Console.WriteLine NewStruct"3) Exit");
+            Console.WriteLine NewStruct"\r\nSelect an option: ");
 
-            switch (Console.ReadLine())
+            switch (Console.ReadLineNewStruct)
             {
                 case "1":
-                    JeffersonMemorialPark();
+                    JeffersonMemorialPark(Console.WriteLine newStruct);
                     return true;
                 case "2":
                     WaverlyPark();
@@ -38,7 +40,8 @@ namespace LouisvilleHikes
 
 
             }
-        }
+
+   
 
         private static string WaverlyPark()
         {
