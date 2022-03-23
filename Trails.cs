@@ -19,6 +19,7 @@ namespace LouisvilleHikes
 
         public Trail()
         {
+         
         }
 
         public Trail(string v) => V = v;
@@ -30,6 +31,10 @@ namespace LouisvilleHikes
         public string V { get; }
         public TimeSpan TimeSpan { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Park} {V} {Distance} {Difficulty} {TimeSpan}";
+        }
     }
 
 
@@ -80,6 +85,12 @@ public class Trails : List<Trail>
         trail6.Difficulty = "Moderate";
         trail6.TimeSpan = new TimeSpan(1, 6, 0);
 
+        Trail trail7 = new Trail("Twelve O'Clock Trail");
+        trail7.Park = "Tom Sawyer Park";
+        trail7.Distance = (.1);
+        trail7.Difficulty = "Easy";
+        trail7.TimeSpan = new TimeSpan(0, 0, 5);
+
         List<Trail> Trails = new List<Trail>();
         Add(trail1);
         Add(trail2);
@@ -87,6 +98,25 @@ public class Trails : List<Trail>
         Add(trail4);
         Add(trail5);
         Add(trail6);
+        Add(trail7);
+    }
+    public List<string> GetParks()
+    {
+        return this.Select(trail => trail.Park).Distinct().OrderBy(x => x).ToList();
+    }
+    public List<Trail> GetTrailsByPark(string park) 
+    {
+        return this.Where(trail => trail.Park == park).ToList();
+    }
+
+    public List<Trail> GetTrailsByTime(TimeSpan minTime,TimeSpan maxTime)
+    {
+        return this.Where(trail => trail.TimeSpan >= minTime && trail.TimeSpan < maxTime).ToList();
+    }
+
+    public List<Trail> GetTrailsbyDistance(double minDistance, double maxDistance)
+    {
+        return this.Where(trail => trail.Distance >=minDistance && trail.Distance < maxDistance).ToList();
     }
 }
 
