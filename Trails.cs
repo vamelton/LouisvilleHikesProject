@@ -85,12 +85,6 @@ public class Trails : List<Trail>
         trail6.Difficulty = "Moderate";
         trail6.TimeSpan = new TimeSpan(1, 6, 0);
 
-        Trail trail7 = new Trail("Twelve O'Clock Trail");
-        trail7.Park = "Tom Sawyer Park";
-        trail7.Distance = (.1);
-        trail7.Difficulty = "Easy";
-        trail7.TimeSpan = new TimeSpan(0, 0, 5);
-
         List<Trail> Trails = new List<Trail>();
         Add(trail1);
         Add(trail2);
@@ -98,7 +92,7 @@ public class Trails : List<Trail>
         Add(trail4);
         Add(trail5);
         Add(trail6);
-        Add(trail7);
+        
     }
     public List<string> GetParks()
     {
@@ -116,7 +110,16 @@ public class Trails : List<Trail>
 
     public List<Trail> GetTrailsbyDistance(double minDistance, double maxDistance)
     {
+        if (minDistance < 0 && maxDistance < 0)
+            throw new ArgumentOutOfRangeException(nameof(minDistance));
+
+        if (maxDistance < 0) maxDistance = Double.MaxValue;
         return this.Where(trail => trail.Distance >=minDistance && trail.Distance < maxDistance).ToList();
     }
+    public List<Trail> GetTrailsByDifficulty(string difficulty)
+    {
+        return this.Where(trail => trail.Difficulty == difficulty).ToList();
+    }
+
 }
 
