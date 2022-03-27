@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace LouisvilleHikes
 {
     public class Park
-    {
+    { 
+
         public static Trails Trails { get; set; } = new Trails();
 
         public static void Main(string[] args)
@@ -69,25 +70,28 @@ namespace LouisvilleHikes
                    
                     int parkDifficulty;
                     string? userSelection4 = Console.ReadLine();
-                    if (int.TryParse(userSelection4, out parkDifficulty) && parkDifficulty > x && parkDifficulty <= 5)
+
+                     string strParkDifficulty= "";
+                    if (int.TryParse(userSelection4, out parkDifficulty) && parkDifficulty > 1 && parkDifficulty <= 3)
                     {
-                        if (parkDifficulty == Easy)
+                        if (parkDifficulty == 1)
                         {
-                            Easy;
+                          strParkDifficulty = "Easy";
 
                         }
-                        else if (parkDifficulty == Moderate)
+                        else if (parkDifficulty == 2)
+                       
                         {
-                            Moderate;
+                           strParkDifficulty = "Moderate";
                         }
                         else
                         {
-                            Strenuous;
+                          strParkDifficulty = "Strenuous";
                         }
 
 
-                        List<Trail> parkDifficulty = Trails.GetTrailsByDifficulty(parkDifficulty);
-                        foreach (Trail trail in parkDifficulty)
+                        List<Trail> parkDifficultyTrails = Trails.GetTrailsByDifficulty(strParkDifficulty);
+                        foreach (Trail trail in parkDifficultyTrails)
                         {
                             Console.WriteLine($"\t{trail}");
                             Console.WriteLine("Invalid Selection");
