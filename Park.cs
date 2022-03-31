@@ -72,12 +72,11 @@ namespace LouisvilleHikes
                     string? userSelection4 = Console.ReadLine();
 
                      string strParkDifficulty= "";
-                    if (int.TryParse(userSelection4, out parkDifficulty) && parkDifficulty > 1 && parkDifficulty <= 3)
+                    if (int.TryParse(userSelection4, out parkDifficulty) && parkDifficulty >= 1 && parkDifficulty <= 3)
                     {
                         if (parkDifficulty == 1)
                         {
                           strParkDifficulty = "Easy";
-
                         }
                         else if (parkDifficulty == 2)
                        
