@@ -118,11 +118,11 @@ namespace LouisvilleHikes
                         }
                         else if (parkTime == 2)
                         {
-                            Trails.GetTrailsByTime(new TimeSpan(0, 0, 0), new TimeSpan(2, 0, 0)).ForEach(x => Console.WriteLine($"\t{x}"));
+                            Trails.GetTrailsByTime(new TimeSpan(1, 0, 0), new TimeSpan(2, 0, 0)).ForEach(x => Console.WriteLine($"\t{x}"));
                         }
                         else
                         {
-                            Trails.GetTrailsByTime(new TimeSpan(0, 0, 0), new TimeSpan(10, 0, 0)).ForEach(x => Console.WriteLine($"\t{x}"));
+                            Trails.GetTrailsByTime(new TimeSpan(2, 0, 0), new TimeSpan(7, 0, 0)).ForEach(x => Console.WriteLine($"\t{x}"));
                         }
 
 
@@ -139,27 +139,28 @@ namespace LouisvilleHikes
                     Console.WriteLine("How far would you like to hike?");
                     Console.WriteLine("\t1: Between 0-2 Miles");
                     Console.WriteLine("\t2: Between 2-5 Miles ");
-                    Console.WriteLine("\t3: Greater than 5 Hours");
+                    Console.WriteLine("\t3: Greater than 5 Miles");
 
                     int parkDistance;
-                    double minDistance = -1, maxDistance = -1;
+                    double minDistance = -1, maxDistance = 9;
                     string? userSelection3 = Console.ReadLine();
-                    if (int.TryParse(userSelection3, out parkDistance) && parkDistance > 0 && parkDistance <= 5)
+                    if (int.TryParse(userSelection3, out parkDistance) && parkDistance > 0 && parkDistance <= 9)
                     {
-                        if (parkDistance == 2)
+                        if (parkDistance == 1)
                         {
-                            minDistance = 2.0;
-                            maxDistance = 5.0;
+                            minDistance = 0;
+                            maxDistance = 2.0;
 
                         }
-                        else if (parkDistance == 5)
+                        else if (parkDistance == 2)
                         {
-                            minDistance = 5.0;
+                            minDistance = 2.0;
+                            maxDistance = 4.9;
                         }
                         else
                         {
-                            minDistance = 0;
-                            maxDistance = 2;
+                            minDistance = 5.0;
+                            maxDistance = 9.0;
                         }
 
 
