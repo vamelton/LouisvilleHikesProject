@@ -93,7 +93,7 @@ namespace LouisvilleHikes
                         foreach (Trail trail in parkDifficultyTrails)
                         {
                             Console.WriteLine($"\t{trail}");
-                            Console.WriteLine("Invalid Selection");
+                            
                         }
 
                     }
@@ -109,7 +109,7 @@ namespace LouisvilleHikes
 
                     int parkTime;
                     string? userSelection2 = Console.ReadLine();
-                    if (int.TryParse(userSelection2, out parkTime) && parkTime > 0 && parkTime <= 3)
+                    if (int.TryParse(userSelection2, out parkTime) && parkTime > 0 && parkTime <= 4)
                     {
                         if (parkTime == 1)
                         {
